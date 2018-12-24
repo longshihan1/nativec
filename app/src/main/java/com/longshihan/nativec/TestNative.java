@@ -1,5 +1,10 @@
 package com.longshihan.nativec;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class TestNative {
 
     static {
@@ -16,5 +21,4 @@ public class TestNative {
      * which is packaged with this application.
      */
     public native String stringFromJNI();
-
 }

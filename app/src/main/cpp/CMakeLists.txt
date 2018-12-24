@@ -26,6 +26,10 @@ add_library( # Sets the name of the library.
         # 资源路径是相对路径，相对于本CMakeLists.txt所在目录
         native-lib.cpp
         testnative.cpp
+        longshihan-lib.cpp
+        JNIHelp.cpp
+        ErrorInfo.cpp
+        LogWriter.cpp
         )
 
 # Searches for a specified prebuilt library and stores the path as a
