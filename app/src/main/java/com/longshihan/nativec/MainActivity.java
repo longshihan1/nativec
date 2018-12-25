@@ -1,6 +1,8 @@
 package com.longshihan.nativec;
 
 import android.app.ActivityManager;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothManager;
 import android.content.Context;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         long nativeLogWriter=  mmap.nativeInit(getTempDir(this).getAbsolutePath(),"test");
         mmap.nativeWrite(nativeLogWriter,"\n买一台，玩一年，流量不花一分钱\n");
         mmap.nativeWrite(nativeLogWriter,"小米的play被吐槽了。。。\n");
+
     }
     public static File getTempDir(Context context) {
         if (context == null) {
