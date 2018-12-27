@@ -29,7 +29,7 @@ std::string jstring2string(JNIEnv *env, jstring jStr) {
 }
 
 
-jlong Java_com_longshihan_nativec_Mmap_nativeInit(JNIEnv *env, jobject instance,
+jlong Java_com_longshihan_mmap_MMAP_nativeInit(JNIEnv *env, jobject instance,
                                                   jstring dir,
                                                   jstring filename) {
     //////////////////////////////////////
@@ -57,7 +57,7 @@ jlong Java_com_longshihan_nativec_Mmap_nativeInit(JNIEnv *env, jobject instance,
 }
 
 
-jlong Java_com_longshihan_nativec_Mmap_nativeWrite(JNIEnv *env, jobject instance,
+jlong Java_com_longshihan_mmap_MMAP_nativeWrite(JNIEnv *env, jobject instance,
                                                    jlong log_writer_object,
                                                    jstring msg_content) {
     LogWriter *logWriter = reinterpret_cast<LogWriter *>(log_writer_object);
@@ -74,7 +74,7 @@ jlong Java_com_longshihan_nativec_Mmap_nativeWrite(JNIEnv *env, jobject instance
     return reinterpret_cast<jlong>(logWriter);
 }
 
-void Java_com_longshihan_nativec_Mmap_nativeCloseAndRenew(JNIEnv *env, jobject instance,
+void Java_com_longshihan_mmap_MMAP_nativeCloseAndRenew(JNIEnv *env, jobject instance,
                                                            jlong logWriterObject) {
     std::string methodName = "nativeCloseAndRenew";
     print(env, methodName.c_str());

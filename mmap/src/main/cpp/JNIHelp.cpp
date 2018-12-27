@@ -150,7 +150,7 @@ void doThrowIOE(JNIEnv *env, const char *msg) {
 void print(JNIEnv *env, const char *string) {
     jclass log = env->FindClass("android/util/Log");
     jmethodID v = env->GetStaticMethodID(log, "v", "(Ljava/lang/String;Ljava/lang/String;)I");
-    jstring mmap = env->NewStringUTF("Mmap");
+    jstring mmap = env->NewStringUTF("MMAP");
     jstring msg = env->NewStringUTF(string);
     env->CallStaticIntMethod(log, v, mmap, msg);
     env->DeleteLocalRef(log);

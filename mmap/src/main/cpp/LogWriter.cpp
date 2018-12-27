@@ -25,7 +25,7 @@ ErrInfo *LogWriter::initMmap(JNIEnv *env, std::string logDir,std::string filenam
     if (fd == -1) {
         return new ErrInfo(OPEN_EXIT, "Error opening file");
     }
-    this->fileStat.st_size = 0;
+    this->fileStat.st_size = fd;
     if (fstat(fd, &fileStat) == -1) {
         close(fd);
         return new ErrInfo(FSTAT_EXIT, "Error fstat file");

@@ -1,4 +1,4 @@
-package com.longshihan.nativec;
+package com.longshihan.mmap;
 
 /**
  * Created by LONGHE001.
@@ -8,7 +8,7 @@ package com.longshihan.nativec;
  * @function
  */
 
-public class Mmap {
+public class MMAP {
 
     static {
         System.loadLibrary("longshihan");
@@ -20,7 +20,7 @@ public class Mmap {
      * @param fileName
      * @return 指针
      */
-    public native long nativeInit(String dir,String fileName);
+    public static native long nativeInit(String dir,String fileName);
 
     /**
      * 写入数据
@@ -28,11 +28,11 @@ public class Mmap {
      * @param msgContent
      * @return
      */
-    public native long nativeWrite(long logWriterObject, String msgContent);
+    public static native long nativeWrite(long logWriterObject, String msgContent);
 
     /**
      * 关闭
      * @param logWriterObject
      */
-    private native void nativeCloseAndRenew(long logWriterObject);
+    private static native void nativeCloseAndRenew(long logWriterObject);
 }

@@ -19,7 +19,7 @@
 #include "ErrorInfo.h"
 
 //一次性分配的页数,目前测试取值为1,2,3,4时seekOffset使用logPageSize-1可以
-#define ALLOC_PAGE_NUM 40
+#define ALLOC_PAGE_NUM 1
 
 class LogWriter {
 public:

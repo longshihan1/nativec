@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.longshihan.mmap.MMAP;
+
 import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,10 +30,10 @@ public class MainActivity extends AppCompatActivity {
         tv.setText(stringFromJNI());
         TestNative testNative=new TestNative();
         tv.append(testNative.getJNI());
-        Mmap mmap=new Mmap();
-        long nativeLogWriter=  mmap.nativeInit(getTempDir(this).getAbsolutePath(),"test");
-        mmap.nativeWrite(nativeLogWriter,"\n买一台，玩一年，流量不花一分钱\n");
-        mmap.nativeWrite(nativeLogWriter,"小米的play被吐槽了。。。\n");
+        MMAP mmap=new MMAP();
+        long nativeLogWriter=  MMAP.nativeInit(getTempDir(this).getAbsolutePath(),"test.txt");
+        MMAP.nativeWrite(nativeLogWriter,"\n买一台，玩一年，流量不花一分钱\n");
+        MMAP.nativeWrite(nativeLogWriter,"小米的play被吐槽了。。。\n");
 
     }
     public static File getTempDir(Context context) {
