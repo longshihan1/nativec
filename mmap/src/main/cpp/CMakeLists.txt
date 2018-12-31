@@ -24,8 +24,6 @@ add_library( # Sets the name of the library.
         # Provides a relative path to your source file(s).
         # 资源文件，可以多个，
         # 资源路径是相对路径，相对于本CMakeLists.txt所在目录
-        native-lib.cpp
-        testnative.cpp
         longshihan-lib.cpp
         JNIHelp.cpp
         ErrorInfo.cpp
