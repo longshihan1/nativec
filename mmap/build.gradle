@@ -1,10 +1,8 @@
 apply plugin: 'com.android.library'
+//apply from:'../../../nexus_publish/nativec.gradle'
 
 android {
     compileSdkVersion 28
-
-
-
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 28

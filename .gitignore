@@ -11,3 +11,10 @@
 /build
 /captures
 .externalNativeBuild
+/mmap/nativec.gradle
+.idea/misc.xml
+app/libs/
+testc/libs/
+testc/src/main/AndroidManifest.xml
+testc/src/main/java/
+testc/src/main/res/drawable/
