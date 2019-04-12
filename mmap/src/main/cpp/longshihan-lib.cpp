@@ -82,6 +82,11 @@ void Java_com_longshihan_mmap_MMAP_nativeCloseAndRenew(JNIEnv *env, jobject inst
     logWriter->closeAndRenew(env);
 }
 
+void Java_com_longshihan_mmap_MMAP_nativeReadLog(JNIEnv *env, jclass type, jlong logWriterObject) {
+    LogWriter *logWriter = reinterpret_cast<LogWriter *>(logWriterObject);
+    logWriter->readLog(logWriterObject);
+}
+
 #ifdef __cplusplus
 };
 #endif

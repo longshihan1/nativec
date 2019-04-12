@@ -7,6 +7,7 @@ import android.content.Context;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.longshihan.mmap.MMAP;
@@ -15,26 +16,24 @@ import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Used to load the 'native-lib' library on application startup.
-    static {
-        System.loadLibrary("longshihan");
-    }
-
+    private int count=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // Example of a call to a native method
         TextView tv = findViewById(R.id.sample_text);
-        tv.setText(stringFromJNI());
-        TestNative testNative=new TestNative();
-        tv.append(testNative.getJNI());
-        MMAP mmap=new MMAP();
-        long nativeLogWriter=  MMAP.nativeInit(getTempDir(this).getAbsolutePath(),"test.txt");
+        final long nativeLogWriter=  MMAP.nativeInit(getTempDir(this).getAbsolutePath(),"test123.txt");
         MMAP.nativeWrite(nativeLogWriter,"\n买一台，玩一年，流量不花一分钱\n");
         MMAP.nativeWrite(nativeLogWriter,"小米的play被吐槽了。。。\n");
 
+        tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                count++;
+                MMAP.nativeWrite(nativeLogWriter,"\n测试：：：：：："+count+"\n");
+                MMAP.nativeReadLog(nativeLogWriter);
+            }
+        });
     }
     public static File getTempDir(Context context) {
         if (context == null) {
@@ -111,11 +110,4 @@ public class MainActivity extends AppCompatActivity {
         }
         return "UNKNOWN";
     }
-
-
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     */
-    public native String stringFromJNI();
 }

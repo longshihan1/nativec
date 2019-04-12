@@ -283,3 +283,7 @@ ErrInfo *LogWriter::checkMmapFile() {
     }
     return NULL;
 }
+
+void LogWriter::readLog(jlong i) {
+    printf("%s",recordPtr);
+}

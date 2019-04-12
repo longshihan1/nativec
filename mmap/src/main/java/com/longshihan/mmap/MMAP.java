@@ -34,5 +34,7 @@ public class MMAP {
      * 关闭
      * @param logWriterObject
      */
-    private static native void nativeCloseAndRenew(long logWriterObject);
+    public static native void nativeCloseAndRenew(long logWriterObject);
+
+    public static native void nativeReadLog(long logWriterObject);
 }

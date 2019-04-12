@@ -33,6 +33,8 @@ public:
 
     void *closeAndRenew(JNIEnv *env);
 
+    void readLog(jlong i);
+
 private:
     struct stat fileStat;
 
