@@ -1,1 +1,1 @@
-include ':app', ':mmap', ':testc'
+include ':app', ':mmap'
