@@ -22,10 +22,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TextView tv = findViewById(R.id.sample_text);
-        final long nativeLogWriter=  MMAP.nativeInit(getTempDir(this).getAbsolutePath(),"test123.txt");
+        final long nativeLogWriter=  MMAP.nativeInit(getTempDir(this).getAbsolutePath(),"test123456.txt");
+        final long nativeLogWriter1=  MMAP.nativeInit(getTempDir(this).getAbsolutePath(),"test12345.txt");
         MMAP.nativeWrite(nativeLogWriter,"\n买一台，玩一年，流量不花一分钱\n");
         MMAP.nativeWrite(nativeLogWriter,"小米的play被吐槽了。。。\n");
-
+        MMAP.nativeWrite(nativeLogWriter1,"测试12345");
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

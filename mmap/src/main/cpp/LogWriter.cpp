@@ -6,6 +6,7 @@
 #include <iostream>
 #include <sys/file.h>
 #include <string.h>
+#include <android/log.h>
 
 LogWriter::LogWriter() {}
 ErrInfo *LogWriter::initMmap(JNIEnv *env, std::string logDir,std::string filename) {
@@ -284,6 +285,12 @@ ErrInfo *LogWriter::checkMmapFile() {
     return NULL;
 }
 
-void LogWriter::readLog(jlong i) {
-    printf("%s",recordPtr);
+void LogWriter::readLog(jlong i1) {
+    /*把文件映射成虚拟内存地址*/
+    __android_log_print(ANDROID_LOG_INFO,"高级","这是啥啥啥");
+    long size = lseek(fd, 0, SEEK_END);
+    char *pp= (char *)mmap(NULL,size,PROT_READ|PROT_WRITE,MAP_SHARED,fd,0);
+    char *pp1=new char[size];
+    memcpy(pp1,pp,size);
+    __android_log_print(ANDROID_LOG_INFO,"高级","---------------------------\n   %s",pp1);
 }

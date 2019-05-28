@@ -37,4 +37,5 @@ public class MMAP {
     public static native void nativeCloseAndRenew(long logWriterObject);
 
     public static native void nativeReadLog(long logWriterObject);
+
 }
